@@ -9,6 +9,7 @@ class App extends Component {
     this.state = {
       comment: []
     }
+    this.deleteComment = this.deleteComment.bind(this);
   }
   // handleSubmitComment (comment) {
   //   this.state.comment.push(comment)
@@ -16,6 +17,24 @@ class App extends Component {
   //     comments: this.state.comment
   //   })
   // }
+  _saveComment(comments) {
+    localStorage.comments = JSON.stringify(comments);
+  }
+  deleteComment(index) {
+    console.log(index);
+    this.state.comment.splice(index, 1);
+    const comments = this.state.comment;
+    this.setState({
+      comments
+    });
+    this._saveComment(comments)
+  }
+  componentWillMount() {
+    if (localStorage.comments)
+      this.setState({
+        comment: JSON.parse(localStorage.comments)
+      })
+  }
   render() {
     return (
       <div className='wrapper'>
@@ -27,8 +46,9 @@ class App extends Component {
           this.setState({
             comment: this.state.comment
           })
+          this._saveComment(this.state.comment);
         }.bind(this)}></CommentInput>
-        <CommentList commentList={this.state.comment}></CommentList>
+        <CommentList commentList={this.state.comment} deleteComment={this.deleteComment}></CommentList>
       </div>
     );
   }

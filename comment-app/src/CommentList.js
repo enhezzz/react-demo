@@ -13,7 +13,8 @@ class CommentList extends Component {
             <div>
                 {
                     this.props.commentList.map((comment, index) => {
-                        return <Comment comment={comment} key={index} />
+                        return <Comment comment={comment} key={index}
+                            deleteComment={this.props.deleteComment} index={index} />
                     })
                 }
             </div>
