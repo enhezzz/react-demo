@@ -11,7 +11,7 @@ class Content extends Component {
     return (
       <div>
        <p style={{ color: this.props.themeColor }}>React.js 小书内容</p>
-        <ThemeSwitch />
+        <ThemeSwitch/>
       </div>
     )
   }
