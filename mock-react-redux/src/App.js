@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './Header';
-import Content from './Content'
+import Header from './containers/Header'
+import Content from './containers/Content'
 import PropTypes from 'prop-types'
 class App extends Component {
   render() {

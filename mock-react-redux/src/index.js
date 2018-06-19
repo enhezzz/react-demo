@@ -30,19 +30,19 @@ import { createStore } from 'redux'
 //     dispatch({});
 //     return { getState, dispatch, subscribe, getOldState, updateOldState }
 //   }
-  const themeReducer = (state, action) => {
-    if (!state) return {
-      themeColor: 'red'
-    }
-    switch (action.type) {
-      case 'CHANGE_COLOR':
-        return { ...state, themeColor: action.themeColor }
-      default:
-        return state
-    }
+const themeReducer = (state, action) => {
+  if (!state) return {
+    themeColor: 'red'
   }
-  const store = createStore(themeReducer);
+  switch (action.type) {
+    case 'CHANGE_COLOR':
+      return { ...state, themeColor: action.themeColor }
+    default:
+      return state
+  }
+}
+const store = createStore(themeReducer);
 ReactDOM.render(<Provider store={store}>
-    <App />
+  <App />
 </Provider>, document.getElementById('root'));
 registerServiceWorker();
