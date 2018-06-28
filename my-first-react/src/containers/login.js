@@ -10,8 +10,7 @@ class LoginContainer extends Component{
         this.login = this.login.bind(this);
     }
     login(userData){
-        login(userData,this.props.updateUser,this.props.updateMeUrl);
-        console.log(this.props.state)
+        login.bind(this)(userData,this.props.updateUser,this.props.updateMeUrl);
     }
     render(){
         return (

@@ -1,3 +1,7 @@
 import {createStore} from 'redux'
 import reducer from '../reducers/index'
-export default createStore(reducer)
+import {session} from "../controler/request";
+session().then(initState=>{
+    console.log(initState)
+})
+export default createStore(reducer,initState)

@@ -5,7 +5,7 @@ module.exports = {
  
   mode: 'development',
    // 配置页面入口js文件
-  entry:resolve(__dirname,'../index.js'),
+  entry:["babel-polyfill",resolve(__dirname,'../index.js')],
   output: {
     path: resolve(__dirname, './dist'),
     filename: '[name].[chunkhash:8].index.js',

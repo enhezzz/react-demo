@@ -12,6 +12,8 @@
   .shortcut {
     padding-top: 1rem;
     background: #fff;
+    text-align: center;
+    margin-bottom: .4rem;
     .avatar{
       width: 1.5rem;
       height: 1.5rem;
@@ -26,10 +28,11 @@
   .main{
     text-align: center;
     background: #fff;
-    padding-bottom: 1rem;
+    padding: 0 0 1rem;
+    border-top: 1px solid rgb(235,235,235);
     .available{
       background: #fff;
-      margin-bottom: 7rem;
+      margin-bottom: 5rem;
       .item{
         border-bottom: 1px solid rgb(235,235,235);
         line-height: 1rem;

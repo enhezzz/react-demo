@@ -1,10 +1,12 @@
 
-const registerUrl = '/register';
-const loginUrl = '/login';
+const REGISTER_URL = '/register';
+const LOGIN_URL = '/login';
+const LOGOUT_URL = '/logout';
+const SESSION_INFO = '/sessionInfo'
 export function register(userData){
     console.log(userData)
     if(fetch){
-        let request = new Request(registerUrl);
+        let request = new Request(REGISTER_URL);
         fetch(request,{
             method: 'post',
             credentials: "same-origin",
@@ -29,7 +31,7 @@ export function register(userData){
 }
 export function login(userData,updateUser,updateMeUrl){
     if(fetch){
-        let request = new Request(loginUrl);
+        let request = new Request(LOGIN_URL);
         fetch(request,{
             method: 'post',
             credentials: "same-origin",
@@ -43,7 +45,8 @@ export function login(userData,updateUser,updateMeUrl){
             if(data.result){
                 updateUser({name: data.username})
                 updateMeUrl()
-                alert('登陆成功')
+                alert('登陆成功');
+                this.props.history.push('/me')
             }else{
                 alert('登陆信息错误')
             }
@@ -52,5 +55,44 @@ export function login(userData,updateUser,updateMeUrl){
                 alert(err.message)
             }
         })
+    }
+}
+export function logout(cb){
+    if(fetch){
+        let request = new Request(LOGOUT_URL);
+        fetch(request,{
+            method: 'put',
+            credentials: "same-origin"
+        }).then(response=>{
+            return response.json()
+        }).then(data=>{
+            if(data.res){
+                alert('退出成功');
+                cb();
+                console.log(this.props)
+                this.props.history.replace('/login')
+            }
+        }).catch(err=>{
+            console.log(err)
+            if(err){
+                // alert('错误')
+            }
+        })
+    }
+}
+export async function session(){
+    if(fetch){
+        let request = new Request(SESSION_INFO);
+        let initState = await fetch(request,{
+            method: 'get',
+            credentials: "same-origin"
+        }).then(response=>{
+            return response.json()
+        }).then(initState=>{
+           return initState;
+        }).catch(err=>{
+
+        })
+        return initState
     }
 }

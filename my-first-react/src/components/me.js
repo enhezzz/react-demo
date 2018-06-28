@@ -8,13 +8,14 @@ class Me extends Component{
                     <div className="avatar">
 
                     </div>
+                    <span>{this.props.user?this.props.user.name: ''}</span>
                 </div>
                 <div className="main">
                     <div className="available">
                         <div className="item">我的发表</div>
                     </div>
                     <div className="logout">
-                        <button>logout</button>
+                        <button onClick={this.props.logout}>logout</button>
                     </div>
                 </div>
             </div>
