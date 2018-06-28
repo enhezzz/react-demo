@@ -1,0 +1,18 @@
+.footer{
+    &{
+        padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    // height: 20px;
+    left: 0;
+    background: rgba(225, 225, 225, 1);
+    font-size: .123077rem
+    }
+    
+    .item{
+        text-align: center
+    }
+}
