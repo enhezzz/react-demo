@@ -1,6 +1,5 @@
 .footer{
-    &{
-        padding: 10px;
+    padding: 10px;
     display: flex;
     justify-content: space-around;
     position: fixed;
@@ -9,10 +8,16 @@
     // height: 20px;
     left: 0;
     background: rgba(225, 225, 225, 1);
-    font-size: .123077rem
-    }
-    
+    font-size: .123077rem;
     .item{
-        text-align: center
+        text-align: center;
+        a{
+            display: block;
+            text-decoration: none;
+            //color: #fff;
+        }
+        a.actived{
+            color: rgb(255, 161, 212);
+        }
     }
 }

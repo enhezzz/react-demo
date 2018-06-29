@@ -10,6 +10,8 @@ import Login from './src/containers/login'
 import Register from './src/containers/register'
 // import store from './src/store/index'
 import Me from './src/containers/me'
+import Article from './src/containers/article'
+import Activities from './src/containers/activities'
 const root = document.querySelector('.root');
 import reducer from './src/reducers/index'
 import {session} from "./src/controler/request";
@@ -22,7 +24,9 @@ session().then(initState=>{
                     <Route path="/" component={App}>
                         <Route path="login" component={Login}> </Route>
                         <Route path="register" component={Register}></Route>
-                        <Router path="me" component={Me}></Router>
+                        <Route path="me" component={Me}></Route>
+                        <Route path="article" component={Article}></Route>
+                        <Route path="activities" component={Activities}></Route>
                     </Route>
                 </Router>
             </Provider>

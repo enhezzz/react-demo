@@ -1,0 +1,29 @@
+.article{
+  min-height: 100vh;
+  padding: 0 1rem;
+  font-size: .4rem;
+  text-align: center;
+  .header{
+    color: rgb(234,211,156);
+    line-height: 1rem;
+  }
+  .inputField{
+    textarea{
+      resize: vertical;
+    }
+  }
+  .submit-control{
+    button{
+      width: 6rem;
+      height: 1rem;
+      margin-top: 2.5rem;
+      -webkit-border-radius: 9px;
+      -moz-border-radius: 9px;
+      border-radius: 9px;
+      border: none;
+      background: rgb(234, 153, 181);
+      color: #fff;
+    }
+
+  }
+}

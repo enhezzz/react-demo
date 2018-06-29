@@ -38,7 +38,6 @@ class Login extends Component {
                         </div>
                     </form>
                 </div>
-                {this.props.state.user.name}
             </div>
         )
     }

@@ -2,7 +2,8 @@
 const REGISTER_URL = '/register';
 const LOGIN_URL = '/login';
 const LOGOUT_URL = '/logout';
-const SESSION_INFO = '/sessionInfo'
+const SESSION_INFO = '/sessionInfo';
+const ARTICLE = '/article'
 export function register(userData){
     console.log(userData)
     if(fetch){
@@ -89,10 +90,38 @@ export async function session(){
         }).then(response=>{
             return response.json()
         }).then(initState=>{
+            console.log(initState)
            return initState;
         }).catch(err=>{
 
         })
         return initState
+    }
+}
+export function publish(data,cb){
+    if(fetch){
+        let request = new Request(ARTICLE);
+        fetch(request,{
+            method: 'post',
+            credentials: "same-origin",
+            body: data
+        }).then(response=>{
+            if(response.status == 500){
+                alert('你还未登陆,请登陆~');
+                this.props.history.push('/login')
+            }
+            return response.json()
+        }).then(data=>{
+            if(data.result){
+                alert('发表成功');
+                delete data.result
+                console.log(data)
+                cb(data)
+            }
+        }).catch(err=>{
+            if(err) {
+                throw err
+            }
+        })
     }
 }
