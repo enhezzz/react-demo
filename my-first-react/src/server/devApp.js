@@ -5,13 +5,13 @@ const articleRouter = require('./router/article')
 const {resolve} = require('path')
 require('./db/index')
 const session = require('express-session')
-const app = express();
+const devApp = express();
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }))
-app.use(express.static(resolve(__dirname)))
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 600000 }}))
-app.use(userRouter);
-app.use(articleRouter)
-app.listen(80,'localhost',()=>{
+devApp.use(express.static(resolve(__dirname)))
+devApp.use(session({ secret: 'keyboard cat', cookie: { maxAge: 600000 }}))
+devApp.use(userRouter);
+devApp.use(articleRouter)
+devApp.listen(80,'localhost',()=>{
     console.log('listen 80 port succeed...')
 })

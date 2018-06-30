@@ -5,7 +5,6 @@ import articleReducer from './articles'
 const reducer = combineReducers({
     user: userReducer,
     me: meReducer,
-    articles: articleReducer,
-    logo: ''
+    articles: articleReducer
 })
 export default reducer

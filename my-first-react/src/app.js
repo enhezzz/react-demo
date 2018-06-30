@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import Footer from './containers/footer'
 import './style/app.scss'
+import { hot } from 'react-hot-loader'
 class App extends Component{
     render(){
         return (
@@ -14,4 +15,4 @@ class App extends Component{
     )
     }
 }
-export default App
+export default hot(module)(App)

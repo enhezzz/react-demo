@@ -1,11 +1,12 @@
 {
-    "presets": [
-        "env",
-        "react",
-        "stage-3"
-      ],
+  "presets": [
+    "env",
+    "react",
+    "stage-3"
+  ],
   "plugins": [
     "transform-async-to-generator",
-    "transform-regenerator"
+    "transform-regenerator",
+    "react-hot-loader/babel"
   ]
 }
