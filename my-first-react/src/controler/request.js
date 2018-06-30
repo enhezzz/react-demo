@@ -4,6 +4,7 @@ const LOGIN_URL = '/login';
 const LOGOUT_URL = '/logout';
 const SESSION_INFO = '/sessionInfo';
 const ARTICLE = '/article'
+const UPDATE_AVATAR = '/avatar'
 export function register(userData){
     console.log(userData)
     if(fetch){
@@ -44,7 +45,10 @@ export function login(userData,updateUser,updateMeUrl){
             return reponse.json()
         }).then(data=>{
             if(data.result){
-                updateUser({name: data.username})
+                updateUser({
+                    name: data.username,
+                    avatarPath: data.avatarPath
+                })
                 updateMeUrl()
                 alert('登陆成功');
                 this.props.history.push('/me')
@@ -122,6 +126,22 @@ export function publish(data,cb){
             if(err) {
                 throw err
             }
+        })
+    }
+}
+export function update_avatar(avatar,updateAvatar){
+    if(fetch){
+        let request = new Request(UPDATE_AVATAR);
+        fetch(request,{
+            method: 'put',
+            credentials: "same-origin",
+            body: avatar
+        }).then(response=>{
+            return response.json()
+        }).then(data=>{
+            updateAvatar(data.avatarPath);
+        }).catch(err=>{
+
         })
     }
 }

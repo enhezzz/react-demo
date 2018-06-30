@@ -3,6 +3,8 @@
   padding: 0 1rem;
   font-size: .4rem;
   text-align: center;
+  margin-bottom: 47px;
+  background: #F5F5F5;
   .header{
     color: rgb(234,211,156);
     line-height: 1rem;
@@ -10,6 +12,7 @@
   .inputField{
     textarea{
       resize: vertical;
+      text-indent: .4rem;
     }
   }
   .submit-control{

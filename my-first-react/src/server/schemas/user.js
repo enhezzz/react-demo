@@ -1,5 +1,6 @@
 const schemaRule = {
     username: String,
-    password: String
+    password: String,
+    avatarPath: String
 }
 module.exports = schemaRule

@@ -1,3 +1,4 @@
+$DEFAULT_AVATAR_PATH : "/default_avatar.jpg";
 .me {
   //@at-root {
   //  html{
@@ -6,7 +7,7 @@
   //}
   font-size: .4rem;
   padding: 0 1rem;
-  width: 8rem;
+  //width: 8rem;
   min-height: 100vh;
   background: rgb(235,235,235);
   .shortcut {
@@ -23,6 +24,10 @@
       -moz-border-radius: 50%;
       border-radius: 50%;
       margin-bottom: .5rem;
+      background: url($DEFAULT_AVATAR_PATH) center/100% no-repeat;
+    }
+    .file-control{
+      display: none;
     }
   }
   .main{
@@ -36,7 +41,10 @@
       .item{
         border-bottom: 1px solid rgb(235,235,235);
         line-height: 1rem;
-
+        a{
+          text-decoration: none;
+          color: rgb(245,190,145);
+        }
       }
     }
     .logout{
